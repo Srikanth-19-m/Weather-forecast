@@ -1,0 +1,161 @@
+:root {
+    --bg-color: #0f172a;
+    --card-color: #1e293b;
+    --text-color: #f1f5f9;
+    --accent: #38bdf8;
+}
+
+/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Flex layout for sticky footer */
+body {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    background: var(--card-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.search-box {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.search-box input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    width: 220px;
+}
+
+.search-box button {
+    padding: 0.5rem 1rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+main.container {
+    flex: 1;
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Current Weather */
+.current-weather {
+    background: var(--card-color);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease-in;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+}
+
+/* Forecast Section */
+.forecast h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.forecast-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.forecast-card {
+    background: var(--card-color);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* Loader */
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--accent);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 1rem auto;
+    animation: spin 1s linear infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+.error {
+    color: #f87171;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--card-color);
+    color: var(--text-color);
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.forecast-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: nowrap; /* No wrapping to next line */
+    overflow-x: auto; /* Allows horizontal scroll if screen is too small */
+    padding-bottom: 0.5rem;
+}
+
+.forecast-card {
+    flex: 0 0 18%; /* Each card takes about 18% of the row width */
+    min-width: 150px; /* Prevents shrinking too much */
+}
+
+
+
+
